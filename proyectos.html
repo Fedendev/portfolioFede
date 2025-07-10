@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyectos | Federico Ferreyra</title>
+  <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+  <!-- Navegación -->
+  <nav>
+    <a href="index.html" class="nav-button">Inicio</a>
+    <a href="proyectos.html" class="nav-button">Proyectos</a>
+  </nav>
+
+  <main>
+    <header>
+      <h1>Mis Proyectos</h1>
+      <p>Portfolio de proyectos actuales y futuros</p>
+    </header>
+
+    <section>
+      <h2>Proyecto Actual</h2>
+      <div class="project-card">
+        <h3>Portfolio Personal</h3>
+        <p><strong>Estado:</strong> En desarrollo</p>
+        <p><strong>Descripción:</strong> Mi primer proyecto web completo, un portfolio personal que muestra mis habilidades y experiencia. El diseño está inspirado en la estética de Solaria's Webspace, combinando funcionalidad moderna con un estilo visual único.</p>
+        <p><strong>Características principales:</strong></p>
+        <ul>
+          <li>Sistema de temas múltiples (Celestial, Sorcerer, Rain, Periwinkle)</li>
+          <li>Selector de fuentes personalizadas</li>
+          <li>Efectos visuales y animaciones CSS</li>
+          <li>Navegación fluida entre páginas</li>
+          <li>Diseño responsive para todos los dispositivos</li>
+          <li>Guardado de preferencias en localStorage</li>
+          <li>Efectos de hover y transiciones suaves</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">CSS3</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">CSS Variables</span>
+          <span class="tech-tag">Responsive Design</span>
+          <span class="tech-tag">LocalStorage</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Proyecto de Facultad</h2>
+      <div class="project-card">
+        <h3>Sistema de Gestión - Proyecto Final</h3>
+        <p><strong>Estado:</strong> Planificado</p>
+        <p><strong>Descripción:</strong> Proyecto final de la Tecnicatura Superior en Análisis de Sistemas que desarrollaré a fin de año. El sistema incluirá:</p>
+        <ul>
+          <li>Desarrollo de aplicación desktop con Java y GUI</li>
+          <li>Interfaz gráfica de usuario moderna y funcional</li>
+          <li>Conexión a base de datos MySQL</li>
+          <li>Backend en PHP para servicios web</li>
+          <li>Hosting y despliegue del sistema completo</li>
+          <li>Documentación técnica y manual de usuario</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">Java GUI</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">PHP</span>
+          <span class="tech-tag">Hosting</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Habilidades en Desarrollo</h2>
+      <p>Actualmente estoy enfocado en mejorar y expandir mis habilidades en:</p>
+      <ul>
+        <li><strong>Desarrollo Web:</strong> React, Vue.js, Node.js</li>
+        <li><strong>Backend:</strong> Spring Boot, Laravel, APIs REST</li>
+        <li><strong>Bases de Datos:</strong> MySQL, PostgreSQL, MongoDB</li>
+        <li><strong>DevOps:</strong> Docker, Git, CI/CD</li>
+        <li><strong>Cloud:</strong> AWS, Azure, Google Cloud</li>
+        <li><strong>Seguridad:</strong> OWASP, criptografía, testing de penetración</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Metodología de Trabajo</h2>
+      <p>Para cada proyecto sigo una metodología estructurada:</p>
+      <ul>
+        <li><strong>Análisis:</strong> Definición de requisitos y objetivos</li>
+        <li><strong>Diseño:</strong> Arquitectura de software y diseño de UI/UX</li>
+        <li><strong>Desarrollo:</strong> Implementación con mejores prácticas</li>
+        <li><strong>Testing:</strong> Pruebas unitarias e integración</li>
+        <li><strong>Despliegue:</strong> Implementación y monitoreo</li>
+        <li><strong>Mantenimiento:</strong> Actualizaciones y mejoras continuas</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Federico Ferreyra | <span class="rainbow-text">Inspirado en Solaria's Webspace</span>
+  </footer>
+
+  <script>
+    // Efectos de hover mejorados
+    document.querySelectorAll('section').forEach(section => {
+      section.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px)';
+      });
+      
+      section.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Animación de entrada para elementos
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
+    });
+
+    // Efectos especiales para project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px) scale(1.02)';
+        this.style.boxShadow = '0 10px 30px rgba(255, 180, 70, 0.4)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+        this.style.boxShadow = '0 0 20px rgba(255, 180, 70, 0.3)';
+      });
+    });
+  </script>
+</body>
+</html> 

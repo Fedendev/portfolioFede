@@ -1,0 +1,845 @@
+/*
+    LAYOUT FOR MY HOMEPAGE - COLORS/PATTERNS DEFINED BY VARIABLES
+        THEMES ARE DEFINED IN THIS CSS, SELCTED BY CHECKED INPUT ELEMENTS IN BODY
+*/
+/* FONTS */
+@font-face { /* classic scifi font for main theme */
+    font-family: 'Nova Slim';
+    src: url(fonts/NovaSlim-Regular.ttf) format('truetype');
+}
+@font-face { /* blue star theme, wizard vibes */
+    font-family: 'Philosopher';
+    src: url(fonts/Philosopher-Regular.ttf) format('truetype');
+}
+@font-face { /* body text for peri */
+    font-family: 'Overlock';
+    src: url(fonts/Overlock-Regular.ttf) format('truetype');
+}
+@font-face { /* serif for grey rainbow */
+    font-family: 'Belleza';
+    src: url(fonts/Belleza-Regular.ttf) format('truetype');
+}
+@font-face { /* "basic" font for font switcher */
+    font-family: 'Shanti';
+    src: url(fonts/Shanti-Regular.ttf) format('truetype');
+}
+@font-face { /* likes title */
+    font-family: 'Berkshire Swash';
+    src: url(fonts/BerkshireSwash-Regular.ttf) format('truetype');
+}
+@font-face { /* dislikes title */
+    font-family: 'Noto Sans';
+    src: url(fonts/NotoSans-Regular.ttf) format('truetype');
+}
+/* end fonts */
+
+/* RAINBOWS */
+:root {
+    --rainbow: #9b0a75, #d3274d,  #d18701, #b7b100, rgb(0,130,130), #012b90;}
+.rainbowline {
+    position: relative;}
+.rainbowline:after {
+    position: absolute;
+    bottom: 0.05em;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--link);
+    background-image: linear-gradient(to right, var(--rainbow));
+    content: '';}
+/* end rainbow stuff */
+
+/*  THEMES */
+/* Main default theme */
+body, body:has(#classic:checked) {
+    --bg: rgb(15,5,20,0.6);     /* black - main background - darkest */
+    --bg2: #1a0e42;             /* indigoish - side background - second darkest */
+    --bg3: #583597;             /* btwn indigo and link blue - select highlight - lightest */
+    --bg4: #3a226d;             /* btwn bg3 and bg2 - for sidebar links - third darkest */
+    --bgimg: url('assets/dotspace.webp');   /* body bg */
+    --h1img: url('assets/bluestar.webp');   /* heading bg */
+    --text:  rgb(245,240,220);  /* ivory -  text */
+    --link:  #8C56F0;           /* periwinkle - links */
+    --acc: rgb(255,180,70);     /* gold yellow - main accent */
+    --acc2:  khaki;             /* yellow - link highlight */
+    --acc3:  darkorange;        /* orange - italics */
+    --radius: 1em;              /* border radius - round */
+    --font: 'nova slim';
+
+     #pfp img {
+        border-radius: 50%;}
+    .flags span {
+        border-radius: 5px;}
+
+    .sitebutton {
+       display: none;}
+    .sbmain {
+        display: block;}
+}
+
+/* Periwinkle theme - a lavender light theme */
+body:has(#peri:checked) {
+    --bg: #fae0f5;              /* pale lilac - main bg - lightest */
+    --bg2: #9991fc;             /* lavender */
+    --bg3: #f4ccfe;             /* btwn bg2 and bg1 and link blue - select highlight - 2nd lightest */
+    --bg4: #dbb0fe;             /* btwn bg3 and bg2 - for sidebar links - 3rd lightest */
+    --bgimg: none;
+    --h1img: url('assets/peristars.webp');   /* heading bg */
+    --text:  indigo;            /* indigo -  text - darkest*/
+    --link:  #8C56F0;           /* periwinkle - links */
+    --acc: indigo;              /* same as text - main accent */
+    --acc2:  rebeccapurple;     /* dark purple - link highlight */
+    --acc3:  mediumpurple;      /* warm purple - italics */
+    --font: 'overlock';           
+    --radius: 1em;              /* border-radius - round */
+    --rainbow: #FF5376, #FF9538, #F5ED29, #66F95E, #37B7F0, #BD4BF0;
+
+    text-shadow: none; 
+    word-spacing: 0.2em; 
+    font-size: 1.2em;  
+    
+    /* NESTED CSS FOR PERIWIKNLE  
+           font stuff + changing colors that do not translate well by just changing variable colors */
+    ::selection {
+        background: var(--bg2);}
+    .left, .right {
+        background-image: url('assets/peristars.webp');}
+    button, label {
+        background: var(--bg4);}
+    #settings summary:hover, #settings summary:focus {
+        background: var(--bg4);}
+    .left a, .left summary {
+        text-shadow: 0px 0px 1px var(--text);}
+    .left a:hover, .left summary:hover, .left a:focus, .left summary:focus { 
+        text-shadow: 0px 0px 1px var(--acc), 0px 0px 5px var(--acc3), 0px 0px 8px var(--acc3);}
+
+    .left {
+        input:hover, input:focus, input:checked:hover, input:checked:focus {
+            background: var(--acc3);
+            border-color: var(--text);
+            box-shadow: 0px 0px 5px var(--acc3), 0px 0px 2px var(--text) inset;}
+        input:checked {
+            background: var(--bg2);}
+        label:has(input:checked) {
+            color: var(--acc);}
+    }
+
+    a:hover, a:focus { 
+        text-shadow: 0px 0px 1px var(--acc3);}
+    h1 {
+        color: ivory;
+        outline: 1.5px solid var(--acc);
+        border: 2px solid var(--acc);
+        border-style: none solid;
+        font-weight: bold;
+        text-shadow: 0px 0px 2px var(--acc3), 0px 0px 6px var(--acc3), 0px 0px 10px var(--bg2);
+        }
+    h1:before, h1:after {
+        content: '✶';
+        text-shadow: 0px 0px 3px var(--bg4), 0px 0px 6px var(--acc3), 0px 0px 10px var(--acc3);}
+    h1:hover {
+        text-shadow: 0px 0px 1px var(--bg3), 0px 0px 3px var(--bg4), 0px 0px 6px var(--acc3), 0px 0px 10px var(--acc3);
+        box-shadow: 0px 0px 10px var(--acc3), 0px 0px 15px var(--bg2), 0px 0px 25px var(--bg4);}
+
+    /* adjusting link gradients in dropdowns */
+    .left details[open]:not(#settings) ul {
+        background: var(--bg2);}
+    .left details a {
+        border-color: var(--link);
+        background-image: linear-gradient(to right, transparent, var(--bg4) 25%, transparent);}
+    .left details a:hover, .left details a:focus {
+        background-image: linear-gradient(to right, transparent, var(--bg3) 25%, transparent);
+        border-color: var(--text);}
+    #pfp img {
+        border-radius: 50%;}
+    .flags span {
+        border-radius: 5px;}
+
+    .sitebutton {
+       display: none;}
+    .sbtwi {
+        display: block;}
+}
+
+/* Sorcerer theme - dark blue with more stars and oranger accents - hard corners with no rounding */
+body:has(#cel:checked) {
+    --bg: #200c4c;              /* blue - main background - darkest */
+    --bg2: #1d1e6b;             /* lighter blue - second darkest */
+    --bg3: #1e35a2;             /* lightest blue */
+    --bg4: midnightblue ;       /* btwn bg3 and bg2 */
+    --darker: #10003c;          /* shadows */
+    --bgimg: ;
+    --h1img: url('assets/bluerstar.webp');  /* heading bg */
+    --text:  lightyellow;       /* ivory -  text */
+    --link:  rgb(255,215,40);   /* gold yellow - links */
+    --acc: #ffc000;             /* gold yellow - main accent */
+    --acc2:  khaki;             /* yellow - link highlight */
+    --acc3:  orange;            /* orange - italics */
+    --font: 'philosopher';     
+    --radius: 0;                /* border radius - hard corners */
+
+    text-shadow: none; 
+    word-spacing: 0.1em;
+
+    main {
+        background: transparent;}
+    .left, .right {
+        background-image: url('assets/bluerstar.webp');
+        box-shadow: 0px 0px 2vw var(--darker);}
+    .left a, .left summary:not(#settings summary) {
+       background-image: linear-gradient(to right, var(--bg), var(--bg2) 25%, var(--bg));}
+    .left a:hover, .left summary:hover:not(#settings summary), .left a:focus, .left summary:focus:not(#settings summary) {
+       background-image: linear-gradient(to right, var(--bg), var(--bg3) 25%, var(--bg));}
+    
+    h1, h2, button, input, label, a, summary, #settings, #settings summary:hover, #settings summary:focus {
+        border-radius: 0;}
+    h1 {
+        margin: 3rem auto 0rem;
+        padding: 0.6em;
+        box-shadow: 0px 0px 2vw #10003c;}
+    h2 {
+        border-left: none;
+        box-shadow: none;
+        padding: 0.45em 0.3em 0.3em;
+        text-shadow: -5px 5px 15px var(--bg3);
+        margin-top: 1em;}
+    h2:hover {
+        text-shadow: -5px 5px 15px var(--acc3)}
+    a:hover:not(.left a, #leave), a:focus:not(.left a, #leave) {
+        border: 1px solid var(--link);
+        outline: 1px solid var(--link);
+        outline-offset: 1px;
+        color: var(--acc2); 
+        text-shadow: 0px 0px 1px var(--acc), 0px 0px 5px var(--acc3), 0px 0px 8px var(--acc3);
+        box-shadow: none;
+        background: var(--bg3);}
+
+    
+    #settings {
+        box-shadow: 0px 0px 1rem #10003c inset;}  
+    input:not(#c_widget input) { 
+        width: 0.5em;
+        height: 0.5em;
+        margin-right: 0.4em;
+        margin-bottom: 0.2em;
+        transform: rotate(45deg);}
+
+    /* adjusting link gradients in dropdowns */
+    
+    .left details[open]:not(#settings) ul {
+        background: var(--bg);}
+    .left details a {
+        border-color: var(--link);
+        background-image: linear-gradient(to right, transparent, var(--bg4) 25%, transparent);}
+    .left details a:hover, .left details a:focus {
+        background: transparent;
+        background-image: linear-gradient(to right, transparent, var(--bg3) 25%, transparent);
+        border-color: var(--acc);}
+    #pfp img {
+        border-radius: var(--radius);}
+    .flags span {
+        border-radius: var(--radius);}
+    .sitebutton {
+       display: none;}
+    .sbcel {
+        display: block;}
+}
+/* Light Grey RainBow (LGRB) theme */
+body:has(#lgrb:checked) {
+    --bg: #b8a8b7;          /* light grey - main background */
+    --bg2: #9888a7;         /* darker light grey */
+    --bg4: #b8a8b7;         /* same as bg*/
+    --bg3: #a494ad ;        /* btwn bg and bg2 */
+    --bgimg: none;
+    --h1img: linear-gradient(to right, #c82a8b, #f76e64, #ccb800, #4ab666, #007492, #691f87);  /* heading bg - rainbow */
+    --text:  #402040;       /* muted purplish dark grey */
+    --link:  #8d276a;       /* warm purple */
+    --acc: #402040;         /* text */
+    --acc2:  #ffe8b7;       /* warm white highlight */
+    --acc3:  #8d276a;       /* warm purple */
+    --font: 'belleza';    
+    --radius: 0.2rem;       /* border radius, slight rounding */
+    --rainbow: #c82a8b, #f76e64, #ccb800, #4ab666, #007492, #691f87;
+
+    font-size: 1.2em;
+    letter-spacing: -0.02em;
+    word-spacing: 0.05em;
+    text-shadow: none;
+
+    ::selection {
+        background: var(--acc3);
+        color: var(--acc2);}
+
+    hr, a:hover, a:focus, button:hover, button:focus, summary:hover, summary:focus, .left a:hover, .left a:focus, .left summary:hover, .left summary:focus, label:not(#c_widget label):hover, label:has(input:checked):hover, #leave, #c_submitButton:hover, #c_submitButton:focus {
+        background-image: var(--h1img);
+        box-shadow: none;
+        text-shadow: 0px 1px 0px var(--acc), 0px 0px 5px var(--acc);
+        color: var(--acc2);
+        border-color: var(--text);}
+    a:hover:before, summary:hover:before, summary:hover:after {
+        color: var(--acc2);}
+    #settings[open] summary {
+        border-color: var(--acc3);}
+    input:not(#c_widget input) { 
+        margin-right: 0.2em;}
+    label:hover input {
+        border-color: var(--acc);}
+
+    input:checked {
+        background: var(--link);}
+    label:has(input:checked) {
+        color: var(--text);}
+    label:has(input:checked):hover input {
+        background: var(--acc2);}
+    
+    button {
+        padding: 0.1rem 0.6rem;}
+    hr {
+        height: 24px;
+        text-shadow: none;
+        box-shadow: 0px 0px 0px 11px var(--bg) inset, 0px 0px 0px 11px var(--bg) inset, 0px 0px 0px 11px var(--bg2) inset, 0px 0px 0px 11px var(--bg) inset;}
+    .left hr {
+        height: 24px;
+        box-shadow: 0px 0px 0px 11px var(--bg2) inset, 0px 0px 0px 11px var(--bg2) inset, 0px 0px 0px 11px var(--bg2) inset, 0px 0px 0px 11px var(--bg2) inset;}
+    
+    h1, h2, a, button, label, summary, #settings {
+        border-radius: 0.2em;}
+    
+    h1 {
+        padding: 0.7em 0.5em;
+        letter-spacing: 0.1em;
+        border-style: double solid;
+        border-width: 3px 1px;
+        outline: none;
+        text-shadow: 0px 1px 0px #c82a8b90, 0px 2px 0px #f76e6490, 0px 3px 0px #ccb80090, 0px 4px 0px #4ab66690, 0px 5px 0px #00749290, 0px 6px 0px #691f8790;}
+    h1:hover {
+        letter-spacing: calc(0.1em + 0.5vw);
+        text-shadow: 0px 1px 0px var(--text);
+        box-shadow: 0px 0px 4px var(--acc), 0px 0px 12px var(--acc3);}
+    h2 {
+        border-left: 1px solid var(--acc);}
+    h2:hover {
+        box-shadow: 10em 0px 10em -15em var(--acc3) inset;}
+
+    .left {
+        box-shadow: 2px 0px 0px #c82a8b, 4px 0px 0px #f76e64, 6px 0px 0px #ccb800, 8px 0px 0px #4ab666, 10px 0px 0px #007492, 12px 0px 0px #691f87, 14px 0px 0px var(--bg2);}
+    .right {
+        box-shadow: -2px 0px 0px #c82a8b, -4px 0px 0px #f76e64, -6px 0px 0px #ccb800, -8px 0px 0px #4ab666, -10px 0px 0px #007492, -12px 0px 0px #691f87, -14px 0px 0px var(--bg2);}
+
+    .left a, .left summary, #navbar summary:not(:hover) {
+        color: var(--text);}
+
+    .left details[open]:not(#settings) ul {
+        background: var(--bg3);}
+    .left details a {
+        border-color: var(--link);
+        background-image: linear-gradient(to right, transparent, var(--bg4) 25%, transparent);}
+    #pfp img {
+        border-radius: var(--radius);}
+    .flags span {
+        border-radius: var(--radius);}
+    .sitebutton {
+       display: none;}
+    .sbrain {
+        display: block;}
+}
+
+/* FONT OVERRIDE */
+body:has(#font1:checked) {
+    --font: 'shanti';}
+/* the theme font button "font2" doesnt need anything in order to revert back to theme font, it just deselects the basic font button allowing the revert */
+
+
+/* END THEMES */
+
+/* MAIN CSS FOR HOMEPAGE */
+/*
+                    \    8   8    8    888  8  8         8   8    8    888  8  8         8   8    8    888  8  8    /
+                    |    88 88   8 8    8   88 8    |    88 88   8 8    8   88 8    |    88 88   8 8    8   88 8    |  
+                    |    8 8 8  88888   8   8 88    |    8 8 8  88888   8   8 88    |    8 8 8  88888   8   8 88    |
+                    /    8   8  8   8  888  8  8         8   8  8   8  888  8  8         8   8  8   8  888  8  8    \
+*/
+
+::selection {
+    background: var(--bg3);
+    color: var(--text);}
+html {
+    overflow: scroll;
+    scrollbar-color: var(--link) var(--bg2);
+    }	
+body {
+    font-family: var(--font);
+    font-size: 1.1em;
+    word-spacing: 0.02em;
+    letter-spacing: -0.01em;
+    width: calc(100% - 18rem);
+    max-width: none;
+    margin-left: 15rem;
+    background-image: var(--bgimg);
+    text-shadow: 0px 0px 5px var(--bg);}
+main {
+    padding: 0.5rem 6vw 1rem;
+    background: var(--bg);}
+    
+.left, .right {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    background: var(--bg2);}
+.left {
+    box-sizing: border-box;
+    width: 15rem;
+    left: 0;
+    border-right: 3px double var(--acc);
+    padding: max(15px, 1vw);
+    overflow: scroll;
+    scrollbar-color: var(--acc3) var(--bg2);}
+.right {
+    width: 3rem;
+    right: 0;
+    border-left: 3px double var(--acc);}
+
+#skip:not(#skip:focus) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+#skip:focus {
+    outline: 2px solid var(--acc2);}
+nav {
+    padding: 0 5px;}
+
+hr {
+    border: none;
+    height: 1em;
+    box-shadow: 0px 0px 0px 0.45em var(--bg) inset, 0px 0px 0px 0.45em var(--bg) inset, 0px 0px 0px 0.45em var(--bg) inset, 0px 0px 0px 0.45em var(--bg) inset;
+    background: transparent;
+    background-image: linear-gradient(to right, var(--acc3), var(--acc3), transparent, var(--acc3), var(--acc3));
+     overflow: visible;
+    text-align: center;
+    margin: 0.5em -0.45em;}
+.left hr {
+    box-shadow: 0px 0px 0px 0.45em var(--bg2) inset, 0px 0px 0px 0.45em var(--bg2) inset, 0px 0px 0px 0.45em var(--bg2) inset, 0px 0px 0px 0.45em var(--bg2) inset;}
+hr:before {
+    content: ' ✧ ✧ ✧ ';
+    color: var(--acc);}
+hr:hover:before {
+    content: ' ✦ ✦ ✦ ';
+    color: var(--acc);}
+
+fieldset {
+    border: 1px solid var(--bg3);
+    padding: 5px;
+    padding-top: 1px;
+    margin-top: 0;
+    border-radius: var(--radius);}
+legend {
+    color: var(--link);} 
+
+em, i {
+    color: var(--acc3);}
+p {
+    }
+h1, h2, h3, h4, h5, h6 {
+    color: var(--acc);}
+h1 {
+    color: var(--acc2);
+    font-size: min(2.4vw, 2.3rem);
+    width: fit-content;
+    margin: 1rem auto 2rem;
+    background-image: var(--h1img);
+    background-position: center;
+    padding: 1em 0.5em 0.9em;
+    outline: 1.5px solid var(--acc);
+    outline-offset: 2px;
+    border: 2px solid var(--acc);
+    border-style: none solid;
+    border-radius: 3em;
+    transition: letter-spacing 2s, color 2s, text-shadow 2s, box-shadow 2s, border-radius 0.5s;
+    font-weight: normal;
+    letter-spacing: 0.1em;}
+h1:before, h1:after {
+    content: '✴';
+    padding: 0.5em;
+    text-shadow: 0px 0px 1px var(--acc), 0px 0px 10px var(--acc3);
+    }
+h1:hover {
+    letter-spacing: calc(0.1em + 0.5vw);
+    color: var(--acc2);
+    text-shadow: 0px 0px 1px var(--acc), 0px 0px 10px var(--acc3);
+    box-shadow: 0px 0px 4px var(--acc), 0px 0px 12px var(--acc3);}
+h2 {
+    border-bottom: 3px double var(--acc);
+    border-left: 3px double var(--acc);
+    border-radius: 3em 3em 0 3em;
+    padding: 0.45em 0.6em 0.3em;
+    margin: 1.5em calc(-1vw - 0.5rem) 0.5em;
+    box-shadow: 10em 0px 10em -15em var(--acc3) inset;}
+h2:hover {
+    box-shadow: 10em 0px 10em -15em var(--acc3) inset, -6px 3px 8px var(--bg) inset, 6px -6px 15px -8px var(--acc3) inset;}
+
+a, button, label {
+    border-radius: 1em;
+    padding: 0 0.4em;
+    margin: 0 -0.2rem;}
+a:hover, a:focus {
+    border: 1px solid var(--link);
+    color: var(--acc2); 
+    text-shadow: 0px 0px 1px var(--acc), 0px 0px 5px var(--acc3), 0px 0px 8px var(--acc3);
+    box-shadow: 0px 0px 12px var(--link) inset;}
+
+button, label {
+    background: var(--bg2);
+    border: 1px solid var(--acc);
+    border-style: solid none;
+    color: var(--acc);
+    padding: 0.2rem 0.6rem;
+    margin: 4px;}
+label {
+    border-style: none solid;}
+button:hover, button:focus, label:hover, label:focus, textarea:hover, textarea:focus, #c_widget input:hover, #c_widget input:focus {
+    color: var(--acc2);
+    outline: 1px solid var(--acc);
+    outline-offset: 1px;
+    text-shadow: 0px 0px 3px var(--acc3);
+    box-shadow: 0px 0px 25px var(--bg3) inset, 0px -5px 5px var(--bg3) inset, 0px 0px 8px var(--acc3);}
+button:focus, a:focus, label:focus, summary:focus {
+    outline: 1px solid var(--acc);}
+
+input { 
+    appearance: none;
+    outline: 1px solid var(--acc);
+    outline-offset: 2px;
+    border-radius: 1em;
+    width: 0.9em;
+    height: 0.9em;
+    margin: 0;
+    background: var(--bg);} 
+input:hover, input:focus, input:checked:hover, input:checked:focus {
+    border: 1px solid var(--acc3);
+    background: var(--acc2);
+    box-shadow: 0px 0px 5px var(--acc3), 0px 0px 2px var(--acc3) inset;}
+input:checked {
+    border: 1px solid var(--acc);
+    border-style: solid double;
+    background: var(--bg3);}
+label:has(input:checked) {
+    color: var(--acc2);}
+
+.left a, .left summary {
+    color: var(--acc2);
+    background-image: linear-gradient(to right, transparent, var(--bg4) 25%, transparent);
+    text-decoration: none;
+    width: 100%;
+    border: 1px solid var(--link);
+    border-style: solid none;
+    border-radius: 0;
+    margin: 5px 0;
+    padding: 0.4rem 2%;}
+.left a:before,  .left summary:before {
+    content: "✧";
+    color: var(--acc);
+    padding: 0 0.5em;}
+.left summary:after {
+    content: "+";
+    color: var(--acc);
+    padding: 0 0.5em;}
+.left details[open] summary:after {
+    content: "-";
+    color: var(--acc);
+    padding: 0 0.5em;}
+
+.left details a {
+    background-image: linear-gradient(to right, transparent, var(--bg2) 25%, transparent);
+    border: 1px solid var(--bg3);
+    border-style: solid none;}
+
+
+.left a:hover, .left summary:hover, .left a:focus, .left summary:focus {
+    background-image: linear-gradient(to right, transparent, var(--bg3) 25%, transparent);
+    color: var(--acc2); 
+    text-shadow: 0px 0px 1px var(--acc), 0px 0px 5px var(--acc3), 0px 0px 8px var(--acc3);
+    box-shadow: none;
+    border: 1px solid var(--acc);
+    border-style: solid none;
+    outline: transparent;}
+.left details[open] summary {
+    border: 1px solid var(--acc);
+    border-style: solid none;}
+
+.left details a:hover, .left details a:focus {
+    background: transparent;
+    background-image: linear-gradient(to right, transparent, var(--bg4) 25%, transparent);}
+
+.left a:hover:before, .left summary:hover:before, .left a:focus:before, .left summary:focus:before {
+    content: "✦";}
+.left details[open]:not(#settings) ul {
+    border-left: 1px solid var(--acc);
+    padding: 0 5px;
+    margin-left: 5px;
+    background: var(--bg);}
+
+.left li, .left ul {
+    margin: 0;
+    padding: 0;}
+
+#settings {
+    border: 1px solid var(--link);
+    border-style: solid none;
+    background: var(--bg);
+    padding: 0.4em;
+    border-radius: calc(0.6em + 10px);}
+#settings summary:before, #settings summary:after {
+    display: inline-block;
+    transform: rotate(270deg);}
+#settings summary:before {
+    content: "⧨";}
+#settings summary:after {
+    content: "◭";}
+
+#settings[open] summary {
+    border-bottom: 1px solid var(--bg3);
+    margin-bottom: 0.5rem;}
+
+#settings summary {
+    border: none;
+    background-image: none;
+    padding: 0.2em 0;
+    margin: 0;
+    text-align: center;}
+#settings summary:hover, #settings summary:focus {
+    background: var(--bg2);
+    border: 1px solid var(--acc);
+    border-style: none solid;
+    border-radius: 3em;
+    outline: 1px solid var(--acc);
+    outline-offset: 1px;}
+#settings[open] summary:hover, #settings[open] summary:focus {
+    margin-bottom: calc(0.5rem + 1px);
+    /* adds 1 extra px removed from removing bottom border, border couldnt be made transparent bc it changes the shape of the rounded inner side borders */
+}
+
+#save {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 5px;}
+/* saved message for theme save button */
+#notif {
+    display: none;
+    width: fit-content;
+    margin: 5px auto 0px;
+    color: var(--link);}
+
+.buttons {
+    margin-top: 1rem;}
+.buttons img {
+    height: 31px;
+    width: 88px;}
+
+/* footer stuff */
+#creation, #date {
+    color: var(--acc3);
+    margin: 0;}
+#date {
+    float: left;}
+#creation {
+    float: right;}
+#leave {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.4rem 0.8rem;
+    float: right;
+    clear: both;
+    border: 1px solid var(--link);
+    border-style: none solid;
+    outline: 1px solid var(--link);
+    outline-offset: 1px;
+    color: var(--acc);
+    text-shadow: 0px 0px 2px var(--bg2), 0px 0px 4px var(--bg2), 0px 0px 6px var(--bg2);
+    background-image: var(--h1img);
+    background-position: right;
+    transition: letter-spacing 3s, color 3s, text-shadow 4s, box-shadow 4s, border-radius 0.5s;}
+#leave:hover, #leave:focus {
+    color: var(--acc2);
+    letter-spacing: 0.1em;
+    text-shadow: 0px 0px 1px var(--acc), 0px 0px 5px var(--acc3), 0px 0px 8px var(--acc3);
+    box-shadow: 0px 0px 4px var(--acc), 0px 0px 12px var(--acc3);}
+
+#pfp {
+    float: right;
+    width: calc(150px + 1.5em);
+    margin-top: 0;
+    margin-left: 10px;
+    text-align: right;
+    font-size: 0.8em;
+    line-height: 1em;}
+#pfp img {
+    width: 150px;
+    border: 3px double var(--acc);}
+
+.likes, .dislikes {
+    width: 45%;
+    max-width: 500px;
+    min-width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 1em;}
+@media screen and (max-width: 1018px) {
+    .likes, .dislikes {
+        width: 100%;}
+}
+.likes ul, .dislikes ul {
+    padding: 0;}
+.likes li, .dislikes li {
+    display: inline-block;
+    margin: auto 0.3em;}
+
+.likes {
+    color: white;
+    background-image: url("assets/pastelrainbowbg.webp"); 
+    background-size: cover; 
+    border-radius: 20px; 
+    position: relative; 
+    border: 2px solid white;
+    outline: 2px solid darkorchid;
+    font-family: 'Overlock'; 
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 0px darkorchid, -1px -1px 0px darkorchid, 1px -1px 0px darkorchid, -1px 1px 0px darkorchid, 0px 1px 0px darkorchid, 1px 0px 0px darkorchid, 0px -1px 0px darkorchid, -1px 0px 0px darkorchid, 2px 2px 0px darkorchid, 1px 2px 0px darkorchid, 2px 1px 0px darkorchid;
+    padding: 0.1em 1.2em;
+    box-shadow: 0px 3px 0px #F62D97, 0px 4px 0px #FB9036, 0px 5px 0px #CBE404, 0px 6px 0px #19F0AF, 0px 7px 0px #19A7F4, 0px 8px 0px #B30BEC;}
+.likes img {
+    float: right;
+    margin: 10px;}
+.likes h3 {
+    font-family: 'berkshire swash';
+    font-style: italic;
+    font-size: 1.4em;
+    color: white;
+    text-shadow: 0px 1px 0px #F62D97, 0px 2px 0px #FB9036, 0px 3px 0px #CBE404, 0px 4px 0px #19F0AF, 0px 5px 0px #19A7F4, 0px 6px 0px #B30BEC;
+    text-decoration: white underline wavy 1px;
+    text-underline-offset: 0.3em;}
+.likes h3:before, .likes h3:after {
+    content: " ❤ ";}
+.likes li:before {
+  content: '❥ ';
+    margin-right: 0.1em;}
+
+.dislikes {
+    text-shadow: none;
+    color: black; 
+    background: rgb(250,250,250); 
+    padding: 0px 24px; 
+    font-family: 'arial'; 
+    font-size: 0.9em;
+    letter-spacing: 0.05em; 
+    border-radius: 3px;
+    border: 1px solid thistle;}
+.dislikes h3 {
+    color: black;
+    font-weight: normal;
+    text-shadow: 1px 1px 0px orangered;
+    text-decoration: black underline 2px;
+    text-underline-offset: 0.3em;}
+.dislikes h3:before, .dislikes h3:after {
+    content: " ✘ ";
+    color: orangered;}
+.dislikes li:before {
+    content: '- ';
+    font-weight: bold;
+    color: orangered;}
+
+.flags span {
+    color: transparent;
+    text-shadow: none;
+    white-space: nowrap;
+    display: inline-block; 
+    height: 1.5em; 
+    width: 2.25em;
+    border: 1px solid var(--acc);
+    background: linen;
+    background-size: contain;
+    background-position: center;
+    margin-bottom: 1rem;}
+
+#navbar {
+}
+#navbar > summary {
+    display: none;
+    width: 100%;
+    text-align: center;
+    background: var(--bg2);
+    background-image: linear-gradient(to right, var(--bg2), var(--bg4), var(--bg2));
+    border: 1px solid var(--acc);
+    border-style: solid none;
+    padding: 0.5rem;
+    padding-top: 0.6rem;
+    color: var(--acc2);}
+#navbar summary:hover {
+    color: var(--text);
+    text-shadow: 0px 0px 1px var(--acc), 0px 0px 5px var(--acc3), 0px 0px 8px var(--acc3);
+    background-image: linear-gradient(to right, var(--bg2), var(--bg3), var(--bg2));}
+
+#navbar > summary:before, #navbar > summary:after {  
+    padding: 5px;
+    color: var(--acc);}
+
+#navbar > summary:before {
+    content: " ⭒ ≡ ";}
+#navbar > summary:after {
+    content: " ≡ ⭒ ";}
+#navbar > summary:hover:before {
+    content: " ⭑ ≡ ";}
+#navbar > summary:hover:after {
+    content: " ≡ ⭑ ";}
+
+
+
+.sitebutton {
+    width: fit-content;
+    margin: auto;}
+
+
+@media screen and (max-width: 700px) {
+    .sitebutton {
+        display: none;}
+    .left, .right {
+        position: static;
+        height: fit-content;}
+    .right, .left h2 {
+        display: none;}
+    .left {
+        width: 100%;
+        border-right: none;
+        border-bottom: 3px double var(--acc);
+        padding: max(15px, 1vw);
+        padding-bottom: 10px;}
+    body {
+        width: 100%;
+        margin-left: 0;}
+    .left li {
+        display: inline-block;
+        margin: 0 5px;}
+    .left a {
+        padding-right: 1.1em;}
+    .left summary {
+        padding-right: 0.3em;}
+    .left a, .left summary, .left a:hover, .left a:focus, .left summary:hover, .left summary:focus {
+        border-radius: 2em;}
+    nav {
+        margin-top: 1rem;}
+    h1 {
+        font-size: 4.8vw;
+        margin: 2rem auto 1.5rem;}
+
+    #navbar > summary {
+        display: block;}
+}
+
+

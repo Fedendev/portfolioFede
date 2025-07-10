@@ -1,0 +1,497 @@
+/* Portfolio de Federico Ferreyra - Estilo Solaria */
+/* Aplicando la estética y funcionalidad de Solaria's Webspace */
+
+/* FONTS - Fuentes de Solaria */
+@font-face {
+  font-family: 'Nova Slim';
+  src: url('portfolio-assets/fonts/NovaSlim-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Philosopher';
+  src: url('portfolio-assets/fonts/Philosopher-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Overlock';
+  src: url('portfolio-assets/fonts/Overlock-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Belleza';
+  src: url('portfolio-assets/fonts/Belleza-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Shanti';
+  src: url('portfolio-assets/fonts/Shanti-Regular.ttf') format('truetype');
+}
+
+/* RAINBOWS - Sistema de arcoíris de Solaria */
+:root {
+  --rainbow: #9b0a75, #d3274d, #d18701, #b7b100, rgb(0,130,130), #012b90;
+}
+
+.rainbowline {
+  position: relative;
+}
+
+.rainbowline:after {
+  position: absolute;
+  bottom: 0.05em;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--link);
+  background-image: linear-gradient(to right, var(--rainbow));
+  content: '';
+}
+
+/* THEMES - Temas de Solaria adaptados para el portfolio */
+/* Main default theme - Celestial */
+body, body:has(#classic:checked) {
+  --bg: rgba(15,5,20,0.8);
+  --bg2: #1a0e42;
+  --bg3: #583597;
+  --bg4: #3a226d;
+  --text: rgb(245,240,220);
+  --link: #8C56F0;
+  --acc: rgb(255,180,70);
+  --acc2: khaki;
+  --acc3: darkorange;
+  --radius: 1em;
+  --font: 'Nova Slim';
+  
+  background: #1a0e42;
+  background-image: url('portfolio-assets/assets/dotspace.webp');
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: var(--font), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Periwinkle theme */
+body:has(#peri:checked) {
+  --bg: #fae0f5;
+  --bg2: #9991fc;
+  --bg3: #f4ccfe;
+  --bg4: #dbb0fe;
+  --text: indigo;
+  --link: #8C56F0;
+  --acc: indigo;
+  --acc2: rebeccapurple;
+  --acc3: mediumpurple;
+  --font: 'Overlock';
+  --radius: 1em;
+  --rainbow: #FF5376, #FF9538, #F5ED29, #66F95E, #37B7F0, #BD4BF0;
+  
+  background: #fae0f5;
+  background-image: url('portfolio-assets/assets/peristars.webp');
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: var(--font), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  text-shadow: none;
+  word-spacing: 0.2em;
+  font-size: 1.2em;
+}
+
+/* Sorcerer theme */
+body:has(#cel:checked) {
+  --bg: #200c4c;
+  --bg2: #1d1e6b;
+  --bg3: #1e35a2;
+  --bg4: midnightblue;
+  --darker: #10003c;
+  --text: lightyellow;
+  --link: rgb(255,215,40);
+  --acc: #ffc000;
+  --acc2: khaki;
+  --acc3: orange;
+  --font: 'Philosopher';
+  --radius: 0;
+  
+  background: #200c4c;
+  background-image: url('portfolio-assets/assets/bluerstar.webp');
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: var(--font), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  text-shadow: none;
+  word-spacing: 0.1em;
+}
+
+/* Rain theme */
+body:has(#lgrb:checked) {
+  --bg: #2c2c2c;
+  --bg2: #404040;
+  --bg3: #606060;
+  --bg4: #505050;
+  --text: #e0e0e0;
+  --link: #87CEEB;
+  --acc: #FFD700;
+  --acc2: #F0E68C;
+  --acc3: #FFA500;
+  --font: 'Belleza';
+  --radius: 0.5em;
+  
+  background: #2c2c2c;
+  background-image: url('portfolio-assets/assets/rainstars.webp');
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: var(--font), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Font switcher */
+body:has(#font1:checked) {
+  font-family: 'Shanti', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body:has(#font2:checked) {
+  font-family: var(--font), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Layout principal */
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: var(--bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid var(--bg3);
+}
+
+/* Header estilo Solaria */
+header {
+  background: var(--bg2);
+  color: var(--text);
+  padding: 2rem;
+  text-align: center;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  border: 2px solid var(--acc);
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: var(--acc);
+  text-shadow: 0px 0px 10px var(--acc3);
+  position: relative;
+}
+
+header h1:before, header h1:after {
+  content: '✶';
+  color: var(--acc);
+  margin: 0 15px;
+  animation: twinkle 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.5; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+header p {
+  margin: 0.5rem 0 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+/* Secciones */
+section {
+  margin-bottom: 2rem;
+  background: var(--bg2);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--bg3);
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  border-color: var(--acc);
+  box-shadow: 0 0 15px rgba(255, 180, 70, 0.3);
+}
+
+h2 {
+  border-bottom: 2px solid var(--acc);
+  padding-bottom: 0.5rem;
+  color: var(--acc);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+h2:before {
+  content: '✦';
+  color: var(--acc3);
+  margin-right: 10px;
+  animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+/* Listas estilo Solaria */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: "▸";
+  color: var(--acc);
+  font-weight: bold;
+  margin-right: 10px;
+  animation: twinkle 1s ease-in-out infinite alternate;
+}
+
+li {
+  padding: 8px 0;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  padding-left: 20px;
+}
+
+li:hover {
+  background: var(--bg3);
+  padding-left: 25px;
+  color: var(--acc);
+}
+
+/* Enlaces estilo Solaria */
+a {
+  color: var(--link);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--acc);
+  text-shadow: 0px 0px 5px var(--acc3);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--link), var(--acc));
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Navegación estilo Solaria */
+nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--bg2);
+  border: 1px solid var(--bg3);
+  border-radius: var(--radius);
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.nav-button {
+  background: var(--bg3);
+  color: var(--text);
+  padding: 10px 15px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin: 5px;
+  border: 1px solid var(--bg4);
+  position: relative;
+}
+
+.nav-button:hover {
+  background: var(--acc);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Quitar la animación de subrayado para los botones de navegación */
+.nav-button::after {
+  display: none;
+}
+
+
+
+button {
+  background: linear-gradient(135deg, var(--acc), var(--acc3));
+  color: var(--text);
+  border: none;
+  padding: 8px 15px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, var(--acc3), var(--acc));
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--bg2);
+  color: var(--text);
+  border-radius: var(--radius);
+  margin-top: 2rem;
+  border: 1px solid var(--bg3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  nav {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: 1rem;
+  }
+  
+
+}
+
+/* Selección de texto */
+::selection {
+  background: var(--acc);
+  color: var(--text);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--acc);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--acc3);
+}
+
+/* Efectos especiales */
+.rainbow-text {
+  background: linear-gradient(to right, var(--rainbow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Efectos de hover mejorados */
+section:hover h2 {
+  color: var(--acc3);
+  text-shadow: 0px 0px 10px var(--acc3);
+}
+
+/* Estilo para proyectos */
+.project-card {
+  background: var(--bg3);
+  border: 1px solid var(--bg4);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 15px 0;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: var(--acc);
+  box-shadow: 0 0 20px rgba(255, 180, 70, 0.3);
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  color: var(--acc);
+  margin-bottom: 10px;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tech-tag {
+  background: var(--acc);
+  color: var(--bg);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: var(--acc3);
+  transform: scale(1.1);
+} 

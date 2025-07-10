@@ -1,0 +1,89 @@
+/*
+    STARTING POINT - IDEAL FOR SIMPLE DOCS (EX. GUIDES)
+        - MOSTLY MARGINS AND RESETS
+*/
+@font-face {
+    font-family: 'Shanti';
+    src: url(fonts/Shanti-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Sono';
+    src: url(fonts/Sono-Regular.ttf) format('truetype');
+}
+body, main, article, ul, li, div, img, a, button, span, h1, h2, h3, h4, h5, h6, details, summary, fieldset {
+    box-sizing: border-box;}
+html {
+    scrollbar-color: var(--acc) transparent;
+    color-scheme: dark;
+    accent-color: darkorange;}
+@media (prefers-color-scheme: light) {
+    html {
+        color-scheme: light;}
+}
+
+body {
+    --acc: mediumpurple;
+
+    font-family: 'Shanti';
+    font-size: 1.1rem;
+    line-height: 1.2em;
+    width: 90%;
+    max-width: 65rem;
+    margin: 0 auto;
+    background-color: var(--bg);
+    color: var(--text);}
+hr {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;}
+
+a, button, summary, label, select {
+    font-family: inherit;
+    font-size: inherit;
+    display: inline-block;
+    border: 1px solid transparent;
+    padding: 0.12rem 0.5rem;
+    white-space: nowrap;
+    cursor: pointer;}
+input { 
+    appearance: none;
+    outline: 1px solid var(--acc);
+    outline-offset: 2px;
+    border-radius: 50%;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0;
+    background: var(--bg);
+    cursor: pointer;} 
+a {
+    color: var(--acc);}
+button {
+    font-family: inherit;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--acc);}
+i, em, b, strong {
+    color: var(--acc);}
+
+ul {
+    list-style: none;
+    padding: 0;
+    padding-left: 1vw;}
+li {
+    margin: 0;
+    padding: 5px;}
+figure, pre, fieldset {
+  width: fit-content;
+  margin: 1rem 0;
+  padding: 0;} 
+code {
+    font-size: 1rem;
+    padding: 0 0.1em;
+    font-family: 'Sono';}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;}
+
+

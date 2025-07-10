@@ -1,0 +1,74 @@
+function themesave() { /* saves the item and its group */
+    /* displays save message */
+    document.getElementById('notif').style.display = 'block';
+
+    /* THEMES */
+    if(document.getElementById('classic').checked) {
+        localStorage.setItem('theme', 'classic');}
+    if(document.getElementById('peri').checked) {
+        localStorage.setItem('theme', 'peri');}
+    if(document.getElementById('cel').checked) {
+        localStorage.setItem('theme', 'cel');}
+    if(document.getElementById('lgrb').checked) {
+        localStorage.setItem('theme', 'lgrb');}
+    
+    /* FONTS */
+    if(document.getElementById('font1').checked) {
+        localStorage.setItem('font', 'basic');}
+    if(document.getElementById('font2').checked) {
+        localStorage.setItem('font', 'themefont');}
+
+    /* GIFS */
+    if(document.getElementById('play').checked) {
+        localStorage.setItem('gifs', 'play');}
+    if(document.getElementById('stop').checked) {
+        localStorage.setItem('gifs', 'stop');}
+}
+
+/* functions - nothing happens yet, just are defined - will check the respective box if activated - activated by conditions below */
+/* THEMES */
+function classic() {
+    document.getElementById('classic').checked = true;}
+function peri() {
+    document.getElementById('peri').checked = true;}
+function cel() {
+    document.getElementById('cel').checked = true;}
+function lgrb() {
+    document.getElementById('lgrb').checked = true;}
+
+/* FONTS */
+function font1() {
+    document.getElementById('font1').checked = true;}
+function font2() {
+    document.getElementById('font2').checked = true;}
+
+/* GIFS */
+function playgifs() {
+    document.getElementById('play').checked = true;}
+function stopgifs() {
+    document.getElementById('stop').checked = true;}
+
+
+/* checks if the storage item matches each item, preforms the respective function if it does - end result is that the js checks the box if the user saved their choice (allowed JS to store item and group for a given option) */
+/* THEMES */
+if(localStorage.getItem('theme') == 'classic'){
+    classic();}
+if(localStorage.getItem('theme') == 'peri'){
+    peri();}
+if(localStorage.getItem('theme') == 'cel'){
+    cel();}
+if(localStorage.getItem('theme') == 'lgrb'){
+    lgrb();}
+
+/* FONTS */
+if(localStorage.getItem('font') == 'basic'){
+    font1();}
+if(localStorage.getItem('font') == 'themefont'){
+    font2();}
+
+/* GIFS */
+if(localStorage.getItem('gifs') == 'play'){
+    playgifs();}
+if(localStorage.getItem('gifs') == 'stop'){
+    stopgifs();}
+                   
